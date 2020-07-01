@@ -80,20 +80,6 @@
     font-size: 1.3;
     margin-top: 0.5rem;
   }
-  .stripe {
-    width: 100%;
-  }
-  .on {
-    background: tomato;
-    color: white;
-    transition: 0.4s all ease-in-out;
-  }
-
-  .off {
-    background: white;
-    color: tomato;
-    transition: 0.4s all ease-in-out;
-  }
 </style>
 
 <div>

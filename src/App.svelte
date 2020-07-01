@@ -35,7 +35,7 @@
 
   let val = 0;
   const switchesArray = ['P1','P2','P3','P4']
-  const titleArray = ['🌿Monstera & co🌿', '🌱Small ones🌱', '☘️Medium sized☘️', '🌵Rest🌵']
+  const titleArray = ['Monstera & co 🌿', 'Small ones 🌱', 'Medium sized ☘️', 'Rest 🌵']
   let activeIndex = '';
 
   const handleClick = (id) => {
@@ -77,13 +77,13 @@ $:activeIndex =  val;
   }
 
   .on {
-    background: tomato; 
+    background: rgb(161, 209, 158); 
     color: white;
   }
 
   .off {
     background: white;
-    color: tomato;
+    color: rgb(161, 209, 158); 
   }
 
   .title {
@@ -99,7 +99,7 @@ $:activeIndex =  val;
   }
 
   .toff {
-    color: tomato;
+    color: rgb(161, 209, 158); 
     opacity: 0 !important;
   }
 
@@ -135,7 +135,7 @@ $:activeIndex =  val;
 <div class={`main ${ activeIndexes.indexOf(true)>-1 ? 'on' :'off'}`}>
 <div class={` ${ activeIndexes.indexOf(true)>-1 ? 'ton' :'toff'}`}>
 <div class='title blink'>
-  Watering...🌱🍀🌿🌵💦 
+  Watering...💦 
 </div>
 </div>
 {#each switchesArray as item, i}
