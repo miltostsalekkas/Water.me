@@ -28,7 +28,7 @@
     "value",
     function(snapshot) {
       checked = snapshot.val() === 1 ? true : false;
-      sendItemCheckedInitial(checked)
+      sendItemCheckedInitial(checked);
     },
     function(errorObject) {
       console.log("The read failed: " + errorObject.code);
@@ -37,33 +37,32 @@
 
   const switchesArray = [0, 1, 2, 3];
 
-  
-    import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
 
-    const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher();
 
-    function sendItemChecked(event) {
-      const checked =  event.detail.checked
-        dispatch('itemToggle', {
-            checked,
-            index
-        });
-    }
+  function sendItemChecked(event) {
+    const checked = event.detail.checked;
+    dispatch("itemToggle", {
+      checked,
+      index
+    });
+  }
 
-
-    function sendItemCheckedInitial(checked) {
-     console.log('initialize')
-        dispatch('itemToggleI', {
-            checked,
-            index
-        });
-    }
+  function sendItemCheckedInitial(checked) {
+    console.log("initialize");
+    dispatch("itemToggleI", {
+      checked,
+      index
+    });
+  }
 </script>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap");
 
   .content {
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,7 +82,7 @@
 </style>
 
 <div>
-  <div >
+  <div>
     <div class="content">
       <div class="title">{title}</div>
       <Switch on:toggle={sendItemChecked} bind:checked {entryId} />

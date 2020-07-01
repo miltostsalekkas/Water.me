@@ -9,27 +9,44 @@
   const updateDbValue = checked => {
     const toggleRef = db.ref("/");
     toggleRef.update({
-
       // here you set the value you need to update
       // LED_Status: checked ? 1 : 0
       [entryId]: checked ? 1 : 0
     });
   };
 
-  const handleToggle = (checked) => {
-    updateDbValue(checked)
-    sayHello()
-  }
+  var database = firebase.database();
+  var connectionsRef = database.ref("/connections");
 
-  import { createEventDispatcher } from 'svelte';
+  var connectedRef = database.ref(".info/connected");
+  // Number of online users is the number of objects in the presence list.
 
-    const dispatch = createEventDispatcher();
+  // When the client's connection state changes...
+  connectedRef.on("value", function(snap) {
+    // If they are connected..
+    if (snap.val()) {
+      // Add user to the connections list.
+      var con = connectionsRef.push(true);
 
-    function sayHello() {
-        dispatch('toggle', {
-            checked
-        });
+      // Remove user from the connection list when they disconnect.
+      con.onDisconnect().remove();
     }
+  });
+
+  const handleToggle = checked => {
+    updateDbValue(checked);
+    sayHello();
+  };
+
+  import { createEventDispatcher } from "svelte";
+
+  const dispatch = createEventDispatcher();
+
+  function sayHello() {
+    dispatch("toggle", {
+      checked
+    });
+  }
 </script>
 
 <style>
@@ -89,9 +106,6 @@
 </style>
 
 <label class="switch">
-  <input
-    type="checkbox"
-    bind:checked
-    on:change={() => handleToggle(checked)} />
+  <input type="checkbox" bind:checked on:change={() => handleToggle(checked)} />
   <span class="slider" />
 </label>
