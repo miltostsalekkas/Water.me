@@ -36,6 +36,7 @@
   );
 
   let val = 0;
+<<<<<<< Updated upstream
   const switchesArray = ["P1", "P2", "P3", "P4"];
   const titleArray = [
     "Monstera & co 🌿",
@@ -46,6 +47,13 @@
   let activeIndex = "";
 
   const handleClick = id => {
+=======
+  const switchesArray = ['P1','P2','P3','P4']
+  const titleArray = ['Calatheas & castañas 🌿', 'Big dry 🌱', 'Small and needy ☘️', 'Rest 🌵']
+  let activeIndex = '';
+
+  const handleClick = (id) => {
+>>>>>>> Stashed changes
     // console.log('clicked')
     activeIndex = id;
     activeIndex = activeIndex;
