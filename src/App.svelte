@@ -118,7 +118,7 @@ $:activeIndex =  val;
     25% {
       opacity: .5
     }
-    50% {
+    50% { 
       opacity: 0
     }
     75% {
